@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 1s ease;
+        }
+
+        .gradient {
+            width: 100%;
+            background: linear-gradient(149deg, rgba(24, 187, 156, 1) 0%, rgba(106, 57, 175, 1) 42%, rgba(187, 24, 148, 1) 72%, rgba(115, 53, 134, 1) 100%);
+            animation: gradient 10s infinite linear;
+            background-size: 400%;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 80% 0%;
+            }
+            50% {
+                background-position: 20% 100%;
+            }
+            100% {
+                background-position: 80% 0%;
+            }
+        }
+
+        
+        #rules-container {
+            max-width: 800px;
+            margin: auto;
+            color: #fff;
+            font-size: xx-large;
+            
+        }
+
+        p {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-size: 80px;
+        }
+
+        #back-button {
+            cursor: pointer;
+            background-color: #000000;
+            color: #fff;
+            border: 2px solid #ccc;
+            padding: 25px 50px;
+            font-size: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-size: xx-large;
+        }
+
+        #back-button:hover {
+            background-color: #fff;
+            color: black;
+        }
+    </style>
+    <title>Mängu reeglid</title>
+</head>
+<body class="gradient">
+
+<div id="rules-container">
+    <h1><u>Mängu reeglid</u></h1>
+    <p>1. Selle all näete küsimust, millel on 4 vastusevarianti. Kokku tuleb 15 küsimust.</p>
+    <p>2. Peate lohistama ühe teie arvates õige valiku vastuste lahtrisse.</p>
+    <p>3. Teie vastuste tulemuste saate teada alles pärast kogu testi läbimist.</p>
+    <p>4. Sõltuvalt õigete vastuste arvust saate tiitli.</p>
+    <p>5. Proovige läbida kogu test, vastates õigesti kõigile küsimustele. Edu!</p>
+    <br>
+    <button id="back-button" onclick="goBack()">Tagasi</button>
+</div>
+
+<script>
+    function goBack() {
+        location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 1s ease;
+        }
+
+        .gradient {
+            width: 100%;
+            background: linear-gradient(149deg, rgba(24, 187, 156, 1) 0%, rgba(106, 57, 175, 1) 42%, rgba(187, 24, 148, 1) 72%, rgba(115, 53, 134, 1) 100%);
+            animation: gradient 8s infinite linear;
+            background-size: 400%;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 80% 0%;
+            }
+            50% {
+                background-position: 20% 100%;
+            }
+            100% {
+                background-position: 80% 0%;
+            }
+        }
+
+        #final-container {
+            max-width: 600px;
+            margin: auto;
+            color: #fff;
+            font-size: x-large;
+        }
+
+        #restart-button {
+            cursor: pointer;
+            background-color: #000000;
+            color: #fff;
+            border: 2px solid #ccc;
+            padding: 25px 50px;
+            font-size: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-size: x-large;
+        }
+
+        #restart-button:hover {
+            background-color: #fff;
+            color: black;
+        }
+
+        .oige {
+            font-weight: 700;
+            font-size: 40px;
+            color: greenyellow;
+        }
+
+        .vale {
+            font-weight: 700;
+            font-size: 40px;
+            color: red;
+        }
+
+    </style>
+    <title>Финал</title>
+</head>
+<body class="gradient">
+
+    <div id="final-container">
+        <h1>Palju õnne! Olete testi edukalt läbinud!</h1>
+    <p class="oige">Õiged vastused: <span id="correct-count"></span></p>
+    <p class="vale">Valed vastused: <span id="incorrect-count"></span></p>
+        <button id="restart-button" onclick="restart()">Tehke test uuesti</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const correctAnswers = parseInt(urlParams.get('correct')) || 0;
+
+    const resultContainer = document.getElementById('final-container');
+    const correctCountElement = document.getElementById('correct-count');
+    const incorrectCountElement = document.getElementById('incorrect-count');
+
+    correctCountElement.textContent = correctAnswers;
+    incorrectCountElement.textContent = urlParams.get('incorrect') || 0;
+
+    let resultMessage = '';
+
+    if (correctAnswers >= 12 && correctAnswers <= 15) {
+        resultMessage = 'Tiitel: Ettevõtte ajaloo ekspert';
+    } else if (correctAnswers >= 7 && correctAnswers <= 11) {
+        resultMessage = 'Tiitel: Ettevõtete vastu huvi';
+    } else {
+        resultMessage = 'Tiitel: Pole ettevõtetega kursis';
+    }
+
+    const resultMessageElement = document.createElement('p');
+    resultMessageElement.textContent = resultMessage;
+    resultMessageElement.style.fontWeight = '700';
+    resultMessageElement.style.fontSize = '36px';
+    resultMessageElement.style.color = '#fff';
+
+    resultContainer.insertBefore(resultMessageElement, document.getElementById('restart-button'));
+});
+
+    function restart() {
+        location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>
